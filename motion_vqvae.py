@@ -314,7 +314,8 @@ class MoQ():
             # pose_seq_eval = map(lambda x: x.to(self.device), batch_eval)
             pose_seq_eval = batch_eval.to(self.device)
 
-            quants = model.module.encode(pose_seq_eval)[0].cpu().data.numpy()
+            up, down = model.module.encode(pose_seq_eval)
+            quants = up[0].cpu().data.numpy()
             all_quants = np.append(all_quants, quants.reshape(-1)) if all_quants is not None else quants.reshape(-1)
 
         print(all_quants)

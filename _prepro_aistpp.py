@@ -25,9 +25,9 @@ parser.add_argument('--smpl_dir', type=str, default='smpl')
 parser.add_argument('--train_dir', type=str, default='data/aistpp_train_wav')
 parser.add_argument('--test_dir', type=str, default='data/aistpp_test_full_wav')
 
-parser.add_argument('--split_train_file', type=str, default='aist_plusplus_final/splits/crossmodal_train.txt')
-parser.add_argument('--split_test_file', type=str, default='aist_plusplus_final/splits/crossmodal_test.txt')
-parser.add_argument('--split_val_file', type=str, default='aist_plusplus_final/splits/crossmodal_val.txt')
+parser.add_argument('--split_train_file', type=str, default='aist_plusplus_final/splits/train.txt')
+parser.add_argument('--split_test_file', type=str, default='aist_plusplus_final/splits/test.txt')
+parser.add_argument('--split_val_file', type=str, default='aist_plusplus_final/splits/val.txt')
 
 parser.add_argument('--sampling_rate', type=int, default=15360*2)
 args = parser.parse_args()

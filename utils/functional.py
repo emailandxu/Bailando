@@ -28,6 +28,8 @@ from scipy.spatial.transform import Rotation as R
 import os
 import shutil
 
+from tqdm import tqdm
+
 def eye(n, batch_shape):
     iden = np.zeros(np.concatenate([batch_shape, [n, n]]))
     iden[..., 0, 0] = 1.0
@@ -544,7 +546,7 @@ def load_data_aist(data_dir, interval=120, move=40, rotmat=False, external_wav=N
     
     if ".ipynb_checkpoints" in fnames:
         fnames.remove(".ipynb_checkpoints")
-    for fname in fnames:
+    for fname in tqdm(fnames, desc="loading aist data"):
         path = os.path.join(data_dir, fname)
         with open(path) as f:
             # print(path)
